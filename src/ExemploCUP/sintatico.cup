@@ -1,0 +1,14 @@
+package ExemploCUP;
+import java_cup.runtime.*;
+import java.util.*;
+import java.io.*;
+
+terminal PTVIRG, MAIS, MENOS, INTEIRO;
+
+non terminal expr_ptv, expr;
+
+expr_ptv ::= expr PTVIRG;
+
+expr ::= INTEIRO
+         | INTEIRO MAIS expr
+         | INTEIRO MENOS expr;

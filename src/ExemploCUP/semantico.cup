@@ -1,0 +1,28 @@
+package ExemploCUP;
+import java_cup.runtime.*;
+import java.util.*;
+import java.io.*;
+
+terminal PTVIRG, MAIS, MENOS;
+
+terminal Integer INTEIRO;
+
+non terminal Object expr_ptv;
+
+non terminal Integer expr;
+
+
+expr_ptv ::= expr:e {:  System.out.println("Resultado = "+ e);  :} PTVIRG;
+
+expr ::= INTEIRO:n
+        {:
+            RESULT = n;
+            :}
+        | INTEIRO:n MAIS expr:e
+        {:
+            RESULT = new Integer(n.intValue() + e.intValue());
+            :}
+        | INTEIRO:n MENOS expr:e
+        {:
+            RESULT = new Integer(n.intValue() - e.intValue());
+            :};
